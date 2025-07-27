@@ -1,0 +1,18 @@
+name: Lint
+on: [push]
+jobs:
+  lint:
+   runs-on: ubuntu-latest
+   steps:
+      - name: Checkout File
+        uses: actions/checkout@v3
+      - name: 'Install the Dependencies'
+        run: npm ci       
+      - name: lint 
+        run: npm run lint 
+      - name: test code 
+        run: npm run test
+      - name: Build test
+        run: npm run build
+      - name: Deplyment 
+        run: echo "deployment completed"
